@@ -1,0 +1,63 @@
+# EAS uses this file instead of .gitignore. Keep the shared exclusions in sync.
+
+# Dependencies
+node_modules/
+
+# Expo output and caches
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native caches and signing files
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro and debug logs
+.metro-health-check*
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# OS files, certificates and local environment
+.DS_Store
+*.pem
+.env*.local
+.env
+
+# TypeScript cache and example app
+*.tsbuildinfo
+app-example
+
+# Generated native projects: EAS runs prebuild from app.json.
+android
+ios
+
+# Build artifacts
+*.apk
+*.aab
+*.ipa
+
+# Store listing artwork is uploaded to Play Console separately, not EAS.
+/marketing/
+/screenshots/
+
+# Archived code, documentation and local exports (not imported by the app)
+/bak/
+/docs/
+/tmp/
+/output/
+/coverage/
+/tests/
+/.vscode/
+/AGENTS.md
+/README.md
+/CONTRIBUTING.md
+/assets/images/README.md
+
+# Keep app assets, source, plugins, Drizzle migrations, bun.lock and build configs.

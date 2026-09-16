@@ -40,9 +40,9 @@ export const CategoryItem = React.memo<CategoryItemProps>(({
         styles.item,
         {
             backgroundColor: colors.surface,
-            opacity: category.enabled ? 1 : 0.7,
+            borderColor: colors.border,
         }
-    ], [colors.surface, category.enabled]);
+    ], [colors.surface, colors.border, category.enabled]);
 
     const labelStyle = useMemo(() => [
         styles.label,
@@ -53,7 +53,7 @@ export const CategoryItem = React.memo<CategoryItemProps>(({
     ], [colors.onSurface, category.enabled]);
 
     return (
-        <Surface style={itemStyle} elevation={1}>
+        <Surface style={itemStyle} elevation={0}>
             <CategoryIcon
                 size={40}
                 icon={category.icon}
@@ -63,41 +63,34 @@ export const CategoryItem = React.memo<CategoryItemProps>(({
                 <Text variant="bodyLarge" style={labelStyle}>
                     {category.label}
                 </Text>
-                {category.isCustom && (
-                    <Surface
-                        style={[styles.customBadge, { backgroundColor: colors.primaryContainer }]}
-                        elevation={0}
-                    >
-                        <Text
-                            variant="labelSmall"
-                            style={[styles.customText, { color: colors.onPrimaryContainer }]}
-                        >
-                            Custom
-                        </Text>
-                    </Surface>
-                )}
+                <Text style={[styles.status, { color: colors.muted }]}>
+                    {category.isCustom ? 'Custom' : 'Built-in'} · {category.enabled ? 'Active' : 'Hidden'}
+                </Text>
             </View>
 
             <View style={styles.actions}>
                 {category.isCustom && (
                     <IconButton
                         icon="delete-outline"
-                        size={24}
+                        size={20}
                         iconColor={colors.error}
                         onPress={handleDelete}
+                        accessibilityLabel={`Delete ${category.label}`}
                         style={styles.actionButton}
                     />
                 )}
                 <Switch
                     value={category.enabled}
+                    accessibilityLabel={`Enable ${category.label}`}
                     onValueChange={handleToggle}
                     color={type === "income" ? colors.tertiary : colors.primary}
                 />
                 <IconButton
                     icon="square-edit-outline"
-                    size={24}
+                    size={20}
                     iconColor={colors.onSurfaceVariant}
                     onPress={handleEdit}
+                    accessibilityLabel={`Edit ${category.label}`}
                     style={styles.actionButton}
                 />
             </View>
@@ -109,36 +102,29 @@ CategoryItem.displayName = 'CategoryItem';
 
 const styles = StyleSheet.create({
     item: {
-        borderRadius: 16,
+        borderRadius: 22,
+        borderWidth: StyleSheet.hairlineWidth,
         marginHorizontal: 16,
         flexDirection: 'row',
+        flexWrap: 'wrap',
         alignItems: 'center',
-        padding: 16,
-        gap: 16,
+        padding: 12,
+        gap: 8,
         minHeight: 76,
     },
     labelContainer: {
         flex: 1,
+        minWidth: 80,
         justifyContent: 'center',
     },
     label: {
+        fontSize: 14,
         fontWeight: '600',
         lineHeight: 22,
     },
-    customBadge: {
-        alignSelf: 'flex-start',
-        paddingHorizontal: 6,
-        paddingVertical: 2,
-        borderRadius: 4,
-        marginTop: 4,
-    },
-    customText: {
-        fontSize: 9,
-        fontWeight: '700',
-        textTransform: 'uppercase',
-        lineHeight: 12,
-    },
+    status: { fontSize: 10, lineHeight: 16, marginTop: 2 },
     actions: {
+        marginLeft: 'auto',
         flexDirection: 'row',
         alignItems: 'center',
         gap: 2,

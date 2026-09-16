@@ -1,91 +1,125 @@
-import { StyleSheet, View } from "react-native";
-import { ThemedText } from "@/components/base/ThemedText";
-import usePersistentAppStore from "@/stores/usePersistentAppStore";
-import { useAppTheme } from "@/themes/providers/AppThemeProviders";
-import { ScreenWrapper } from "@/components/main/ScreenWrapper";
-import ThemeSelector from "@/components/main/ThemeSelector";
-import { themeOptions } from "@/lib/constants";
-import { Icon } from "react-native-paper";
+import { StyleSheet, View, Pressable } from 'react-native';
+import { Icon } from 'react-native-paper';
+import { ThemedText } from '@/components/base/ThemedText';
+import usePersistentAppStore from '@/stores/usePersistentAppStore';
+import { useAppTheme } from '@/themes/providers/AppThemeProviders';
+import { ScreenWrapper } from '@/components/main/ScreenWrapper';
+import { themeOptions } from '@/lib/constants';
+import { useHaptics } from '@/contexts/HapticsProvider';
+import Color from 'color';
+import { getThemeCollection, themeCollections, ThemeCollectionId } from '@/themes/collections';
 
 export default function ThemesScreen() {
-  const { colors } = useAppTheme();
+  const { colors, dark } = useAppTheme();
   const theme = usePersistentAppStore(state => state.theme);
-
-  const dynamicStyles = StyleSheet.create({
-    sectionContainer: {
-      backgroundColor: colors.surface,
-      borderRadius: 12,
-      padding: 16,
-      marginBottom: 20,
-      elevation: 2,
-      shadowColor: colors.shadow,
-      shadowOffset: { width: 0, height: 1 },
-      shadowOpacity: 0.1,
-      shadowRadius: 2,
-    },
-    sectionTitle: {
-      fontSize: 18,
-      fontWeight: "600",
-      color: colors.primary,
-    },
-    descriptionText: {
-      color: colors.muted,
-      fontSize: 14,
-      lineHeight: 20,
-      marginBottom: 16,
-    },
-  });
+  const setTheme = usePersistentAppStore(state => state.setTheme);
+  const collectionId = usePersistentAppStore(state => state.themeCollection);
+  const setThemeCollection = usePersistentAppStore(state => state.setThemeCollection);
+  const collection = getThemeCollection(collectionId);
+  const { hapticImpact } = useHaptics();
+  const selectedTheme = themeOptions.find(option => option.key === theme);
 
   return (
-    <ScreenWrapper
-      background="card"
-      withScrollView
-    >
-      <View
-        style={styles.container}
-      >
-        {/* Theme Selection Section */}
-        <View style={dynamicStyles.sectionContainer}>
-          <View style={styles.sectionHeader}>
-            <Icon
-              source="palette"
-              size={24}
-              color={colors.primary}
-            />
-            <ThemedText style={dynamicStyles.sectionTitle}>
-              App Appearance
-            </ThemedText>
+    <ScreenWrapper background="background" withScrollView contentContainerStyle={styles.content}>
+      <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+        <View style={styles.headingRow}>
+          <View style={[styles.badge, { backgroundColor: colors.surfaceVariant }]}>
+            <Icon source="palette-swatch-outline" size={21} color={colors.primary} />
           </View>
-
-          <ThemedText style={dynamicStyles.descriptionText}>
-            Choose your preferred theme for the app. System theme will automatically switch between light and dark based on your device settings.
-          </ThemedText>
-          <ThemeSelector />
-
+          <View style={styles.text}>
+            <ThemedText style={styles.heading}>Collection</ThemedText>
+            <ThemedText color={colors.muted} style={styles.description}>A different palette, the same Money Manager.</ThemedText>
+          </View>
         </View>
-
-        {/* Current Selection Info */}
-        <View style={dynamicStyles.sectionContainer}>
-          <View style={styles.sectionHeader}>
-            <Icon
-              source="information-outline"
-              size={20}
-              color={colors.secondary}
-            />
-            <ThemedText style={[dynamicStyles.sectionTitle, { fontSize: 16 }]}>
-              Current Selection
-            </ThemedText>
+        <View style={styles.collections}>
+          {(Object.keys(themeCollections) as ThemeCollectionId[]).map(id => {
+            const option = themeCollections[id];
+            const selected = collection === option;
+            const preview = (dark ? option.dark : option.light).colors;
+            return (
+              <View key={id} style={[styles.option, styles.collectionOption, {
+                borderColor: selected ? colors.primary : colors.border,
+                backgroundColor: preview.surface,
+              }]}>
+                <Pressable
+                  accessibilityRole="radio"
+                  accessibilityState={{ checked: selected }}
+                  accessibilityLabel={`${option.name}. ${option.description}`}
+                  onPress={() => {
+                    if (selected) return;
+                    hapticImpact();
+                    setThemeCollection(id);
+                  }}
+                  android_ripple={{ color: preview.ripplePrimary, foreground: true }}
+                  style={({ pressed }) => [styles.choice, pressed && { opacity: 0.85 }]}
+                >
+                  <View style={styles.swatches}>
+                    {[preview.primary, preview.tertiary, preview.primaryContainer].map((color, index) => (
+                      <View key={index} style={[styles.swatch, { backgroundColor: color }]} />
+                    ))}
+                  </View>
+                  <ThemedText color={preview.onSurface} style={styles.label}>{option.name}</ThemedText>
+                  <View style={styles.indicator}>
+                    {selected && <Icon source="check" size={13} color={preview.primary} />}
+                  </View>
+                </Pressable>
+              </View>
+            );
+          })}
+        </View>
+      </View>
+      <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+        <View style={styles.headingRow}>
+          <View style={[styles.badge, { backgroundColor: colors.surfaceVariant }]}>
+            <Icon source="palette-outline" size={21} color={colors.primary} />
           </View>
-
-          <ThemedText style={{ color: colors.text, fontSize: 15 }}>
-            <ThemedText style={{ fontWeight: "600", color: colors.primary }}>
-              {themeOptions.find(opt => opt.key === theme)?.label} Theme
-            </ThemedText>
-            {"\n"}
-            <ThemedText style={dynamicStyles.descriptionText}>
-              {themeOptions.find(opt => opt.key === theme)?.description}
-            </ThemedText>
-          </ThemedText>
+          <View style={styles.text}>
+            <ThemedText style={styles.heading}>Appearance</ThemedText>
+            <ThemedText color={colors.muted} style={styles.description}>Choose the look that suits you.</ThemedText>
+          </View>
+        </View>
+        <View style={styles.options}>
+          {themeOptions.map(option => {
+            const selected = theme === option.key;
+            return (
+              <View key={option.key} style={[styles.option, {
+                borderColor: selected ? colors.primary : colors.border,
+                backgroundColor: selected ? Color(colors.surface).mix(Color(colors.primary), 0.12).hex() : colors.surface,
+              }]}>
+                <Pressable
+                  accessibilityRole="radio"
+                  accessibilityState={{ checked: selected }}
+                  accessibilityLabel={`${option.label}. ${option.description}`}
+                  onPress={() => {
+                    if (selected) return;
+                    hapticImpact();
+                    setTheme(option.key);
+                  }}
+                  android_ripple={{ color: colors.ripplePrimary, foreground: true }}
+                  style={({ pressed }) => [styles.choice, pressed && { opacity: 0.85 }]}
+                >
+                  <Icon source={option.icon} size={24} color={selected ? colors.primary : colors.muted} />
+                  <ThemedText color={selected ? colors.primary : colors.text} style={styles.label}>{option.label}</ThemedText>
+                  <View style={styles.indicator}>
+                    {selected && <Icon source="check" size={13} color={colors.primary} />}
+                  </View>
+                </Pressable>
+              </View>
+            );
+          })}
+        </View>
+      </View>
+      <View style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+        <View style={styles.headingRow}>
+          <View style={[styles.badge, { backgroundColor: colors.surfaceVariant }]}>
+            <Icon source="check-circle-outline" size={21} color={colors.primary} />
+          </View>
+          <ThemedText style={[styles.heading, styles.text]}>Current Selection</ThemedText>
+        </View>
+        <View style={styles.selectionDetails}>
+          <ThemedText color={colors.primary} style={styles.selectionTitle}>{collection.name} · {selectedTheme?.label}</ThemedText>
+          <ThemedText color={colors.muted} style={styles.description}>{selectedTheme?.description}</ThemedText>
+          <ThemedText color={colors.muted} style={styles.description}>Currently using {dark ? 'dark' : 'light'} mode.</ThemedText>
         </View>
       </View>
     </ScreenWrapper>
@@ -93,15 +127,22 @@ export default function ThemesScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 18,
-  },
-  sectionHeader: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 16,
-    gap: 12,
-  },
-})
-
+  content: { padding: 16, paddingBottom: 32, gap: 16 },
+  card: { width: '100%', maxWidth: 600, alignSelf: 'center', padding: 16, borderRadius: 24, borderWidth: StyleSheet.hairlineWidth, gap: 16 },
+  headingRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  badge: { padding: 10, borderRadius: 14 },
+  text: { flex: 1 },
+  heading: { fontSize: 17, lineHeight: 24, fontWeight: '700' },
+  description: { fontSize: 12, lineHeight: 18 },
+  options: { flexDirection: 'row', gap: 8 },
+  collections: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 8 },
+  collectionOption: { flex: 0, width: '31.5%' },
+  option: { flex: 1, borderRadius: 18, borderWidth: 1, overflow: 'hidden' },
+  choice: { paddingHorizontal: 4, paddingTop: 12, paddingBottom: 6, alignItems: 'center', gap: 5 },
+  label: { fontSize: 12, lineHeight: 18, fontWeight: '600', textAlign: 'center' },
+  indicator: { height: 13 },
+  swatches: { flexDirection: 'row', gap: 3, height: 24, alignItems: 'center' },
+  swatch: { width: 18, height: 18, borderRadius: 9 },
+  selectionDetails: { gap: 4 },
+  selectionTitle: { fontSize: 14, lineHeight: 21, fontWeight: '600' },
+});

@@ -1,10 +1,9 @@
 {
   "expo": {
-    "name": "SpendMate",
+    "name": "Money manager",
     "slug": "SpendMate",
-    "version": "1.0.2",
     "orientation": "default",
-    "icon": "./assets/images/adaptive-icon.png",
+    "icon": "./assets/images/icon.png",
     "scheme": "spendmate",
     "userInterfaceStyle": "automatic",
     "platforms": [
@@ -19,7 +18,7 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "monochromeImage": "./assets/images/monochrome-icon.png",
-        "backgroundColor": "#d2f5ec"
+        "backgroundColor": "#003f2c"
       },
       "package": "com.farhan10ansari.spendmate",
       "permissions": [
@@ -36,10 +35,10 @@
           "image": "./assets/images/splash-icon-dark.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff",
+          "backgroundColor": "#003f2c",
           "dark": {
             "image": "./assets/images/splash-icon-light.png",
-            "backgroundColor": "#000000"
+            "backgroundColor": "#003f2c"
           }
         }
       ],
@@ -56,7 +55,7 @@
         "expo-notifications",
         {
           "icon": "./assets/images/notification-icon.png",
-          "color": "#000000",
+          "color": "#087f5b",
           "defaultChannel": "default",
           "enableBackgroundRemoteNotifications": false
         }

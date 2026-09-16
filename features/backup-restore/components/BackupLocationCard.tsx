@@ -107,9 +107,10 @@ export const BackupLocationCard = React.memo<BackupLocationCardProps>(({
     : colors.onErrorContainer;
 
   return (
-    <Card mode="elevated" style={styles.card}>
+    <Card mode="contained" style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}>
       <Card.Title
         title="Backup Location"
+        titleStyle={{ fontSize: 16, fontWeight: '700' }}
         titleVariant="titleMedium"
         left={(props) => <Icon {...props} source="folder-cog" color={colors.onSurfaceVariant} />}
       />
@@ -152,6 +153,8 @@ BackupLocationCard.displayName = 'BackupLocationCard';
 
 const styles = StyleSheet.create({
   card: {
+    borderRadius: 24,
+    borderWidth: StyleSheet.hairlineWidth,
     overflow: 'hidden',
   },
   content: {
@@ -161,7 +164,7 @@ const styles = StyleSheet.create({
   locationContainer: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    borderRadius: 10,
+    borderRadius: 16,
     padding: 12,
     gap: 12,
   },
