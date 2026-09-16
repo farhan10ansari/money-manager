@@ -1,416 +1,262 @@
-# <h1 align="center">💰 SpendMate</h1>
+<p align="center">
+  <img src="assets/images/icon.png" width="112" height="112" alt="Money Manager wallet app icon" />
+</p>
 
-<p align="center"><strong>Smart Personal Finance & Expense Tracking Made Simple</strong></p>
+<h1 align="center">Money Manager</h1>
+
+<p align="center"><strong>Your money. One clear picture.</strong></p>
 
 <p align="center">
-SpendMate is a modern, feature-rich personal finance app designed to help you track every rupee, understand your spending patterns, and achieve your financial goals with intelligent analytics and a beautiful, fluid UI.
+A local-first expense and income tracker with clear insights, customizable categories,
+and 12 theme collections. Previously called <strong>SpendMate</strong>.
 </p>
-<div align="center">
 
+<p align="center">
+  <a href="https://play.google.com/store/apps/details?id=com.farhan10ansari.spendmate">Get it on Google Play</a>
+  · <a href="https://github.com/farhan10ansari/SpendMate/issues">Report an issue</a>
+  · <a href="https://farhan10ansari.github.io/SpendMate/privacy-policy">Privacy policy</a>
+</p>
 
-[![GitHub Stars](https://img.shields.io/github/stars/farhan10ansari/spendmate?style=social)](https://github.com/farhan10ansari/spendmate)
-[![License: BSL](https://img.shields.io/badge/License-BSL-yellow.svg)](https://github.com/farhan10ansari/SpendMate/blob/main/LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/farhan10ansari/spendmate/releases)
-[![Status](https://img.shields.io/badge/Status-Active%20Development-brightgreen)](https://github.com/farhan10ansari/spendmate)
+<p align="center">
+  <img src="https://img.shields.io/badge/version-2.0.0-087f5b" alt="Version 2.0.0" />
+  <img src="https://img.shields.io/badge/Expo-SDK%2057-000020" alt="Expo SDK 57" />
+  <img src="https://img.shields.io/badge/Bun-1.4.0-f9f1e1" alt="Bun 1.4.0" />
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-BSL%201.1-yellow" alt="Business Source License 1.1" /></a>
+</p>
 
+## Explore
 
-</div>
+- [Features](#features)
+- [Themes and appearance](#themes-and-appearance)
+- [Privacy and data](#privacy-and-data)
+- [Development setup](#development-setup)
+- [Checks and builds](#checks-and-builds)
+- [Project structure](#project-structure)
+- [Contributing and support](#contributing-and-support)
 
----
+## Features
 
-## 📋 Table of Contents
+### 💸 Everyday tracking
 
-- [Overview](#overview)
-- [Why SpendMate?](#why-spendmate)
-- [Key Features](#key-features)
-- [Tech Stack](#tech-stack)
-- [Installation](#installation)
-- [Environment Setup](#environment-setup)
-- [Development](#development)
-- [Usage](#usage)
-- [Features Breakdown](#features-breakdown)
-- [Screenshots](#screenshots)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [License](#license)
-- [Support \& Community](#support--community)
-- [Author](#author)
+- Add, view, edit, and delete expenses and income.
+- Record categories or income sources, notes, dates, and times; add payment methods to expenses.
+- Browse expenses grouped by day and income grouped by month.
+- Create custom categories and sources with colors and icons.
+- Choose a display currency and locale-aware number formatting, with currency-aware minimum amounts.
+- Set a daily reminder to keep your records up to date.
 
----
+### 📊 Clearer insights
 
-## 🎯 Overview
+- Review income, expenses, net income, and savings rate on the home screen.
+- Explore daily averages, transaction counts, top categories/sources, and biggest/smallest entries.
+- Visualize category breakdowns and switch between daily, weekly, monthly, yearly, and all-time views.
+- See recent activity without leaving the dashboard.
+- Use responsive phone/tablet layouts, animated home statistics, and optional haptic feedback.
 
-**SpendMate** is your ultimate personal finance companion. Track expenses and income in real-time, visualize spending patterns across multiple time periods (today, this week, last week, each month, each year, or all time), and make data-driven financial decisions. With advanced analytics, secure backup, and customizable themes, SpendMate empowers you to take complete control of your finances.
+### 🔐 Useful controls
 
-Built with React Native and Expo for seamless performance on iOS and Android, SpendMate combines powerful financial tracking with an intuitive, smooth user experience.
+- Protect app access with supported biometrics or device authentication.
+- Export backups to a file and restore your records.
+- Adjust preferences, revisit the guided tour, or reset app data from the menu.
 
----
+## Themes and appearance
 
-## ✅ Why SpendMate?
+Open **Menu → Themes** to choose a collection and an appearance mode.
 
-- 📊 **Advanced Multi-Period Analytics** - Track net income, savings rate, transaction counts, daily averages, and top categories across custom time periods
-- 🎨 **Modern \& Smooth UI** - Beautiful, fluid interface with multiple themes and haptic feedback
-- 🔒 **Secure \& Private** - App lock with biometric protection, encrypted backup, and local data storage
-- 🌍 **Global Support** - Multi-currency support with flexible number formatting
-- ⚡ **Fast \& Responsive** - Lightning-quick performance optimized for mobile
-- 💾 **Data Ownership** - Complete backup and restore capabilities to file
-- 🔔 **Smart Reminders** - Daily notifications to keep you on track
-- 🎯 **Fully Customizable** - Create unlimited custom expense and income categories and sources
+| Collection | Palette |
+| --- | --- |
+| Mint | Fresh green and warm gold; the original look |
+| Ocean | Calm blue and coastal teal |
+| Rose | Soft rose and mellow plum |
+| Amber | Warm honey and terracotta |
+| Violet | Rich purple and cool cyan |
+| Slate | Quiet neutrals and muted bronze |
+| Lava | Fiery orange and molten crimson |
+| Monochrome | Black, white, and grayscale |
+| Ubuntu | Ubuntu-inspired orange and aubergine |
+| Dracula | Dracula-inspired purple and vivid pink |
+| Nord | Nord-inspired frost blue and sage |
+| Gruvbox | Gruvbox-inspired warm retro earth tones |
 
----
+Every collection has **light and dark variants**. Choose **Light**, **Dark**, or
+**System** independently of the collection. Both choices are saved locally and
+restored when the app opens. The current-selection card shows your active choice.
 
-## ✨ Key Features
+For contributors, palettes live in separate files under
+[`themes/collections/`](themes/collections), with a registry in
+[`themes/collections/index.ts`](themes/collections/index.ts). Register new collections
+there and keep both appearance variants consistent. Unknown collection IDs fall
+back to Mint.
 
-### 📱 Core Tracking
+Android's wallpaper-tinted launcher icon is separate from these in-app themes;
+it depends on the device launcher and system settings.
 
-- **Expense Management (CRUD)** - Add, edit, update, and delete expenses with ease
-- **Income Tracking (CRUD)** - Record multiple income streams and sources
-- **Custom Categories** - Create unlimited expense categories tailored to your needs
-- **Custom Sources** - Define custom income sources (salary, freelance, investments, etc.)
+## Privacy and data
 
+Financial records are stored locally using SQLite. Transactions are entered
+manually: there is no bank connection or automatic transaction import. Selecting
+a display currency does not convert existing amounts using exchange rates.
 
-### 📊 Advanced Analytics \& Insights
+Backups are exported as JSON files. Treat them as sensitive personal information;
+the app does not encrypt those export files. App lock controls access to the UI
+and should not be confused with database encryption. Keep a backup before
+uninstalling the app or resetting its data.
 
-- **Multi-Period Statistics** - View comprehensive data across: Today | This Week | Last Week | Each Month | Each Year | All Time
-- **Net Income Calculation** - Automatic calculation of income minus expenses
-- **Savings Rate Analysis** - Track what percentage of income you're saving
-- **Transaction Counts** - Monitor total number of income and expense transactions
-- **Daily Average Spending** - See average spending per day across selected periods
-- **Top Income Categories** - Identify your highest income sources
-- **Min/Max Transaction Analysis** - Find your largest and smallest transactions
-- **Visual Charts** - Pie charts and bar charts for spending visualization
+See the [privacy policy](https://farhan10ansari.github.io/SpendMate/privacy-policy)
+for details.
 
+## Development setup
 
-### 🎨 Customization \& User Experience
+### Requirements
 
-- **Multiple Themes** - Dark mode, light mode, and custom color schemes
-- **Haptic Feedback** - Tactile response on interactions for better feedback
-- **Daily Reminders** - Customizable notifications to log expenses
-- **Multi-Currency Support** - Support for all major global currencies
-- **Number Formatting** - Flexible display options (1,000 vs 1.000 vs 1 000)
-- **Custom Appearance** - Personalize the app to match your preferences
+- Bun **1.4.0**, matching `packageManager` and the EAS build profiles.
+- A Node.js version supported by the installed Expo/React Native toolchain.
+- Git.
+- Android Studio, Android SDK, and a compatible JDK for local Android builds.
+- macOS and Xcode for local iOS builds.
 
+Use the project-local Expo CLI through `bunx expo`; a global legacy `expo-cli`
+installation is not needed. Use a development build for this app's native modules,
+not Expo Go as the primary testing environment.
 
-### 🔐 Security \& Data Management
-
-- **App Lock** - Biometric authentication (fingerprint/face) and PIN protection
-- **Backup \& Restore** - Export data to file and restore anytime
-- **Local Data Storage** - All data stored locally on your device for privacy
-- **Automatic Session Timeout** - Enhanced security with session management
-- **Encrypted Storage** - Sensitive data encrypted for maximum protection
-
----
-
-## 🛠️ Tech Stack
-
-| Category | Technology |
-| :-- | :-- |
-| **Framework** | React Native with Expo |
-| **Language** | JavaScript / TypeScript |
-| **Database** | SQLite |
-| **ORM** | Drizzle ORM |
-| **State Management** | Zustand \& Context API |
-| **UI Framework** | React Native Paper |
-| **Build Tool** | Expo CLI |
-| **Code Quality** | ESLint |
-
-
----
-
-## 📥 Installation
-
-### Prerequisites
-
-Before you begin, ensure you have the following installed on your machine:
-
-- **Node.js** v22.17 or higher ([Download](https://nodejs.org/))
-- **yarn** package manager (`npm install -g yarn`)
-- **Git** ([Download](https://git-scm.com))
-- **Expo CLI** (`npm install -g expo-cli`)
-- **Android Studio** (for Android development) or **Xcode** (for iOS on macOS)
-
-
-### Clone Repository
-
-```
-
-
-git clone [https://github.com/farhan10ansari/SpendMate.git](https://github.com/farhan10ansari/SpendMate.git)
+```bash
+git clone https://github.com/farhan10ansari/SpendMate.git
 cd SpendMate
-
-
+bun install --frozen-lockfile
 ```
 
+### Environment
 
-### Install Dependencies
+Create a `.env` file at the repository root. There is no checked-in `.env.example`.
+These values supply app metadata and links, not secrets:
 
-```
-
-
-yarn install
-
-
-```
-
-
----
-
-## 🔧 Environment Setup
-
-Create a `.env` file in the root directory of the project:
-
-```
-
-
-cp .env.example .env
-
-
-```
-
-Add the following environment variables to your `.env` file:
-
-```
-
-
-EXPO_PUBLIC_APP_VERSION="1.0.0"
+```dotenv
+EXPO_PUBLIC_APP_VERSION="2.0.0"
 EXPO_PUBLIC_APP_AUTHOR="farhan10ansari"
-EXPO_PUBLIC_TELEGRAM_URL="https://t.me/farhan10ansari_spend_mate_disc"
 EXPO_PUBLIC_CONTACT_EMAIL="spendmate.assist@gmail.com"
+EXPO_PUBLIC_TELEGRAM_URL="https://t.me/farhan10ansari_spend_mate_disc"
+EXPO_PUBLIC_PRIVACY_POLICY="https://farhan10ansari.github.io/SpendMate/privacy-policy"
 EXPO_PUBLIC_LOG_LEVEL="error"
-
-
 ```
 
-**Configuration Details:**
+`EXPO_PUBLIC_FEEDBACK_FORM` optionally supplies a feedback-form URL. Public
+environment variables are embedded in the client—never put credentials in them.
+Cloud-build metadata is configured in [`eas.json`](eas.json); `.env` is excluded
+from Git and EAS uploads. Keep the displayed version aligned with `app.json`,
+`package.json`, and the EAS profile values when preparing a release.
 
-- `EXPO_PUBLIC_APP_VERSION` - Current version number
-- `EXPO_PUBLIC_APP_AUTHOR` - App developer/author name
-- `EXPO_PUBLIC_TELEGRAM_URL` - Community discussion group link
-- `EXPO_PUBLIC_CONTACT_EMAIL` - Contact email for support
-- `EXPO_PUBLIC_LOG_LEVEL` - Logging level (error, warn, info, debug)
+### Run locally
 
----
+```bash
+# Build and launch on an Android device/emulator
+bun android
 
-## 🚀 Development
+# Build and launch on iOS (macOS)
+bun ios
 
-### Start Development Server
-
+# Start Metro for an already-installed development build
+bunx expo start --dev-client
 ```
 
+After changing the app name, icons, splash screen, or native plugin configuration,
+refresh an existing native project before rebuilding:
 
-yarn start
-
-
+```bash
+bunx expo prebuild --platform android --no-install
+bun android
 ```
 
-This will start the Expo development server. You can then:
+Native folders are generated and ignored by Git. Review native customizations
+before regenerating; `--clean` deletes and recreates the native project. Reloading
+Metro alone does not update installed launcher icons or the app label.
 
-- Press `i` to open iOS simulator
-- Press `a` to open Android emulator
-- Scan the QR code with Expo Go app on your phone
+## Checks and builds
 
+### Local checks
 
-### Build Application
-
+```bash
+bunx tsc --noEmit
+bun run lint
+bun test tests
+bun run doctor
 ```
 
+For intentional database schema changes, generate and review migrations with
+`bun run db:migrate`. Theme selection uses the existing persisted preferences;
+adding a palette does not require a database schema migration.
 
-yarn build
+### EAS cloud builds
 
+```bash
+bunx eas-cli@latest login
 
+# Development client
+bunx eas-cli@latest build --platform android --profile development
+
+# Installable preview APK
+bunx eas-cli@latest build --platform android --profile preview
+
+# Production AAB for Google Play
+bunx eas-cli@latest build --platform android --profile production
 ```
 
-Builds the app for production.
-
-### Lint Code
-
-```
-
-
-yarn lint
-
-
-```
-
-Checks code quality and style issues.
-
----
-
-## 💡 Usage
-
-### Getting Started
-
-1. **Install the App** - Download and install SpendMate on your device
-2. **Launch the App** - Open SpendMate for the first time
-3. **Set Preferences** - Configure your currency, theme, and notification settings
-4. **Add Categories** - Create custom expense and income categories
-5. **Start Tracking** - Log your first expense or income
-6. **View Analytics** - Check your home screen for insights and trends
-
----
-
-## 📊 Features Breakdown
-
-### Expense Management
-
-- Full CRUD operations for expenses
-- Categorize by custom categories
-- Add optional notes
-- Filter by date range and category
-- Easy edit and delete functionality
-- Recurring expense support
-
-
-### Income Management
-
-- Track multiple income streams
-- Categorize by source (salary, freelance, bonus, investments, etc.)
-- Add notes and details
-- Track income growth over time
-- Compare income across periods
-
-
-### Analytics Dashboard
-
-- **Visual Representations** - Pie charts showing spending distribution, line graphs for trends, bar charts for comparisons
-- **Custom Time Periods** - Filter analytics by Today, This Week, Last Week, Each Month, Each Year, or All Time
-- **Comprehensive Metrics** - Net income, savings rate, total income, total expenses, transaction counts, daily averages, top categories, min/max transactions
-- **Exportable Reports** - Generate and export financial reports
-- **Comparison Analysis** - Compare spending and income across different periods
-
-
-### Security \& Privacy
-
-- Biometric authentication (fingerprint, face recognition, etc.)
-- No cloud dependencies - full local storage
-- Automatic session timeout for security
-- Manual backup export for data control
-
-
-### Customization Options
-
-- Light, dark, and custom themes
-- Choose preferred currency and number format
-- Customize expense and income categories
-- Set custom reminders and notifications
-- Personalize theme colors
-
----
-
-## 📸 Screenshots
-
-<!-- Add your app screenshots in the corresponding folders -->
-```
-
-
-![Dashboard](./screenshots/dashboard.png "SpendMate Dashboard - View all your financial data")
-![Analytics](./screenshots/analytics.png "Advanced Analytics - Multi-period statistics")
-![Add Transaction](./screenshots/add-transaction.png "Add Transaction - Quick expense/income logging")
-![Settings](./screenshots/settings.png "Settings - Customization & Security")
-![Themes](./screenshots/themes.png "Multiple Themes - Light, dark, and custom modes")
-![Charts](./screenshots/charts.png "Visual Charts - Spending patterns and trends")
-
-
-```
-
-
----
-
-## 🗺️ Roadmap
-
-- [x] Core CRUD operations for income and expenses
-- [x] Multi-period analytics dashboard
-- [x] Custom expense categories and income sources
-- [x] Light/Dark theme support
-- [x] Biometric app lock
-- [x] Backup and restore functionality
-- [x] Daily reminders
-- [x] Onboarding tutorial
-- [x] Haptic feedbacks
-- [x] Multi-currency support
-- [x] Statistics: net income, savings rate, transaction counts, daily averages, top categories etc
-- [x] Reset App Data
-- [ ] Multi-device cloud sync
-- [ ] More-Themes Support
-- [ ] Budget goals and alerts
-- [ ] AI-powered spending insights
-- [ ] Investment tracking
-- [ ] Bill reminders and recurring transactions
-- [ ] Advanced reporting and PDF export
-- [ ] Data visualization improvements
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! When you're ready to contribute, we'll provide detailed guidelines. For now, you can:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-Check back soon for our comprehensive [CONTRIBUTING.md](CONTRIBUTING.md) guide.
-
----
-
-## 📄 License
-
-This project is licensed under the **BSL 1.1 License** - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 💬 Support \& Community
-
-Have questions, suggestions, or encountered a bug? We'd love to hear from you!
-
-**Get in Touch:**
-
-- **Email:** [spendmate.assist@gmail.com](mailto:spendmate.assist@gmail.com)
-- **GitHub Issues:** [Report a Bug](https://github.com/farhan10ansari/spendmate/issues)
-- **GitHub Discussions:** [Join the Discussion](https://github.com/farhan10ansari/spendmate/discussions)
-- **Telegram Community:** [Join our Community](https://t.me/farhan10ansari_spend_mate_disc)
-
-**Response Time:** We typically respond to issues and emails within 24-48 hours.
-
----
-
-## 👨‍💻 Author
-
-**Mohd Farhan Ansari**
-
-A passionate developer building modern financial tools to help people take control of their money.
-
-**Connect with Me:**
-
-- [GitHub](https://github.com/farhan10ansari) - Check out my other projects
-- [LinkedIn](https://www.linkedin.com/in/farhan10ansari/) - Professional profile
-- [Email](mailto:spendmate.assist@gmail.com) - Support Mail
-
----
-
-## 🌟 Support SpendMate
-
-If you find SpendMate helpful and it saves you time or money, please consider:
-
-- ⭐ **Starring the repository** - Your star motivates us to keep improving
-- 📢 **Sharing with friends** - Help others take control of their finances
-- 💬 **Providing feedback** - Tell us what features you'd love to see
-- 🐛 **Reporting bugs** - Help us make SpendMate better
-- 🤝 **Contributing** - Join us in building the ultimate finance app
-
----
-
-<p align="center">
-  <strong>Made with ❤️ by Mohd Farhan Ansari</strong>
-</p>
-<p align="center">
-  <strong>SpendMate v1.0.0</strong> | <a href="https://github.com/farhan10ansari/spendmate">GitHub</a> | <a href="https://t.me/farhan10ansari_spend_mate_disc">Community</a>
-</p>
-
----
-
-### SEO Keywords
-
-*Personal finance app, expense tracker app, income tracker, budget management app, financial analytics app, expense management application, spending tracker, money management, personal finance app, mobile finance app, financial planning app, expense logging app, income and expense tracker, real-time finance tracking, multi-currency app, secure finance app, privacy-focused finance app, React Native app, Expo app*
+The corresponding `bun run build:development`, `build:preview`, and
+`build:production` scripts require `eas` on your PATH. The production profile uses
+remote versioning and increments Android's version code automatically.
+
+[`.easignore`](.easignore) excludes marketing artwork, backups, documentation,
+tests, and local outputs from build uploads while retaining runtime assets and
+migrations. EAS generates the native projects from the app configuration.
+
+The Play Store title is **Money Manager: Expense Tracker**; the installed app
+label is **Money manager**. The repository name, URL scheme, and Android package
+ID (`com.farhan10ansari.spendmate`) retain their original identifiers.
+
+### Store artwork
+
+- [Play Store icon](marketing/play-store/exports/play-store-icon.png): 512 × 512.
+- [Feature graphic](marketing/play-store/exports/feature-graphic.png): 1024 × 500.
+- [Screenshot artwork and review notes](marketing/play-store/README.md).
+- [Native icon specifications](assets/images/README.md).
+
+The promotional screenshots are AI-composited drafts, not pixel-exact captures.
+Review their documented UI differences before publishing. Store assets are
+uploaded separately in Play Console, not bundled into the app.
+
+## Project structure
+
+| Location | Responsibility |
+| --- | --- |
+| `app/` | Expo Router pages and layouts |
+| `features/`, `components/` | Feature UI and shared components |
+| `themes/` | Theme collections, shared palette factory, and providers |
+| `stores/`, `contexts/`, `hooks/` | Preferences, state, and reusable logic |
+| `db/`, `drizzle/`, `repositories/` | SQLite access, migrations, and data queries |
+| `assets/` | Runtime icons, fonts, and animations |
+| `plugins/` | Local Expo configuration plugins |
+| `tests/` | Bun regression tests |
+| `marketing/play-store/` | Store artwork and generation notes |
+
+Built with **Expo SDK 57**, **React Native**, **TypeScript**, **Expo Router**,
+**SQLite + Drizzle**, **Zustand**, **TanStack Query**, **React Native Paper**,
+**Reanimated**, and **React Native Gifted Charts**. Exact versions live in
+[`package.json`](package.json) and [`bun.lock`](bun.lock).
+
+## Contributing and support
+
+Read the [contribution guide](CONTRIBUTING.md) and [project standards](AGENTS.md).
+Use the Bun commands above, run the checks, and keep pull requests focused.
+Please do not include personal transaction records or private backup files in
+issues or screenshots.
+
+- [Report bugs or suggest a feature](https://github.com/farhan10ansari/SpendMate/issues)
+- [Telegram community](https://t.me/farhan10ansari_spend_mate_disc)
+- [Email support](mailto:spendmate.assist@gmail.com)
+
+Created by [Mohd Farhan Ansari](https://github.com/farhan10ansari).
+If the app is useful to you, a star, a thoughtful review, or feedback is welcome.
+
+## License
+
+Licensed under the **Business Source License 1.1**. See [LICENSE](LICENSE) for
+the full terms, usage restrictions, and scheduled change license.
