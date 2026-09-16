@@ -14,7 +14,7 @@ const SettingSecureLoginToggle = ({ showSuccessSnackbar = true }: { showSuccessS
         <SettingSwitchListItem
             title="Secure login"
             description={isAuthenticationSupported
-                ? "Unlock SpendMate with biometrics or your device lock"
+                ? "Unlock Money Manager with biometrics or your device lock"
                 : "Set up a device PIN, password, or biometrics to enable secure login."}
             value={biometricLogin}
             disabled={!isAuthenticationSupported}

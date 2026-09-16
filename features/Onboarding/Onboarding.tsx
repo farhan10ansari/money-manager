@@ -43,9 +43,9 @@ export function OnboardingSteps() {
       <View style={styles.header}>
         <View style={styles.brand}>
           <View style={[styles.brandIcon, { backgroundColor: colors.primaryContainer }]}>
-            <Icon source="wallet-outline" size={20} color={colors.onPrimaryContainer} />
+            <Icon source={require('../../assets/images/icon.png')} size={20} />
           </View>
-          <Text style={styles.brandName}>SpendMate</Text>
+          <Text style={styles.brandName}>Money Manager</Text>
         </View>
         <Button onPress={finish} compact>{lastStep ? 'Done' : 'Skip tour'}</Button>
       </View>

@@ -41,7 +41,7 @@ export const useOnboardingData = () => {
     {
       id: '1',
       type: 'intro',
-      title: `Welcome to SpendMate`,
+      title: `Welcome to Money Manager`,
       description: 'A little clarity for your everyday money. Track what comes in, what goes out, and what stays with you.',
       lottie: <LottieView source={require('../../assets/lottie/onboarding.json')} autoPlay loop style={{ height: "100%", width: "100%" }} />
     },

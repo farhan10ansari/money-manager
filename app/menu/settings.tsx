@@ -123,7 +123,7 @@ export default function SettingsScreen() {
               <View style={styles.iconBadge}><Icon source="compass-outline" size={22} color={colors.primary} /></View>
               <View style={styles.actionText}>
                 <ThemedText style={styles.actionTitle}>Take a quick tour</ThemedText>
-                <ThemedText style={styles.caption}>Revisit SpendMate’s features and setup</ThemedText>
+                <ThemedText style={styles.caption}>Revisit Money Manager’s features and setup</ThemedText>
               </View>
               <Icon source="chevron-right" size={20} color={colors.muted} />
             </View>

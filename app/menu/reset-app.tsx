@@ -124,7 +124,7 @@ export default function ResetAppScreen() {
                         A fresh start
                     </Text>
                     <Text variant="bodyMedium" style={styles.subtitle}>
-                        Reset SpendMate and erase your app data. This cannot be undone.
+                        Reset Money Manager and erase your app data. This cannot be undone.
                     </Text>
                 </View>
             </Surface>

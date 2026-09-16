@@ -100,9 +100,9 @@ export default function AboutScreen() {
         <ScreenWrapper background="background" withScrollView contentContainerStyle={pageStyles.content}>
             <View style={[pageStyles.hero, { backgroundColor: colors.surface, borderColor: colors.border }]}>
                 <View style={[pageStyles.logo, { backgroundColor: colors.primaryContainer }]}>
-                    <Icon source="wallet-outline" size={32} color={colors.primary} />
+                    <Icon source={require('../../assets/images/icon.png')} size={32} />
                 </View>
-                <ThemedText style={pageStyles.appName}>SpendMate</ThemedText>
+                <ThemedText style={pageStyles.appName}>Money Manager</ThemedText>
                 <ThemedText color={colors.muted} style={pageStyles.tagline}>A little clarity for your everyday money.</ThemedText>
                 {APP_AUTHOR && <ThemedText color={colors.muted} style={pageStyles.author}>Made by {APP_AUTHOR}</ThemedText>}
                 <Pressable onPress={handleVersionTap} accessibilityRole="button"

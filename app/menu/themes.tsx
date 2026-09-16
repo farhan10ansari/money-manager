@@ -28,7 +28,7 @@ export default function ThemesScreen() {
           </View>
           <View style={styles.text}>
             <ThemedText style={styles.heading}>Collection</ThemedText>
-            <ThemedText color={colors.muted} style={styles.description}>A different palette, the same SpendMate.</ThemedText>
+            <ThemedText color={colors.muted} style={styles.description}>A different palette, the same Money Manager.</ThemedText>
           </View>
         </View>
         <View style={styles.collections}>
