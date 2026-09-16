@@ -7,13 +7,16 @@ We welcome contributions! Here's how you can help:
 1. Fork the repository
 2. Clone it: `git clone https://github.com/farhan10ansari/SpendMate.git`
 3. Create a branch: `git checkout -b feature/your-feature`
-4. Make changes and test them
-5. Commit: `git commit -m 'Add feature'`
-6. Push and open a Pull Request
+4. Install dependencies with `bun install` (this also activates the repository's Git hooks)
+5. Make changes and test them
+6. Commit: `git commit -m 'Add feature'`
+7. Push and open a Pull Request
 
 ## Guidelines
 
-- Run `yarn lint` before submitting
+- Run `bun run lint` before submitting
+- Every pull request into `main` must set a strictly higher `package.json` version than the current `main` version
+- Direct commits made while on `main` are protected by the same version-bump rule through the pre-commit hook
 - Keep PRs focused and reasonably sized
 - Reference related issues in your PR
 - We review PRs within 24-48 hours

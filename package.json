@@ -3,6 +3,8 @@
   "main": "expo-router/entry",
   "version": "2.0.0",
   "scripts": {
+    "prepare": "node scripts/install-git-hooks.mjs",
+    "check:version-bump": "node scripts/check-version-bump.mjs",
     "dev": "expo start",
     "start": "expo start",
     "android": "expo run:android",
