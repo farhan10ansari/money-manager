@@ -13,12 +13,12 @@ and 12 theme collections. Previously called <strong>SpendMate</strong>.
 
 <p align="center">
   <a href="https://play.google.com/store/apps/details?id=com.farhan10ansari.spendmate">Get it on Google Play</a>
-  · <a href="https://github.com/farhan10ansari/SpendMate/issues">Report an issue</a>
-  · <a href="https://farhan10ansari.github.io/SpendMate/privacy-policy">Privacy policy</a>
+  · <a href="https://github.com/farhan10ansari/money-manager/issues">Report an issue</a>
+  · <a href="https://farhan10ansari.github.io/money-manager/privacy-policy">Privacy policy</a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-2.0.2-087f5b" alt="Version 2.0.2" />
+  <img src="https://img.shields.io/badge/version-2.0.3-087f5b" alt="Version 2.0.3" />
   <img src="https://img.shields.io/badge/Expo-SDK%2057-000020" alt="Expo SDK 57" />
   <img src="https://img.shields.io/badge/Bun-1.4.0-f9f1e1" alt="Bun 1.4.0" />
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-BSL%201.1-yellow" alt="Business Source License 1.1" /></a>
@@ -102,7 +102,7 @@ the app does not encrypt those export files. App lock controls access to the UI
 and should not be confused with database encryption. Keep a backup before
 uninstalling the app or resetting its data.
 
-See the [privacy policy](https://farhan10ansari.github.io/SpendMate/privacy-policy)
+See the [privacy policy](https://farhan10ansari.github.io/money-manager/privacy-policy)
 for details.
 
 ## Development setup
@@ -120,8 +120,8 @@ installation is not needed. Use a development build for this app's native module
 not Expo Go as the primary testing environment.
 
 ```bash
-git clone https://github.com/farhan10ansari/SpendMate.git
-cd SpendMate
+git clone https://github.com/farhan10ansari/money-manager.git
+cd money-manager
 bun install --frozen-lockfile
 ```
 
@@ -134,7 +134,7 @@ These values supply app metadata and links, not secrets:
 EXPO_PUBLIC_APP_AUTHOR="farhan10ansari"
 EXPO_PUBLIC_CONTACT_EMAIL="spendmate.assist@gmail.com"
 EXPO_PUBLIC_TELEGRAM_URL="https://t.me/farhan10ansari_spend_mate_disc"
-EXPO_PUBLIC_PRIVACY_POLICY="https://farhan10ansari.github.io/SpendMate/privacy-policy"
+EXPO_PUBLIC_PRIVACY_POLICY="https://farhan10ansari.github.io/money-manager/privacy-policy"
 EXPO_PUBLIC_LOG_LEVEL="error"
 ```
 
@@ -253,7 +253,7 @@ Use the Bun commands above, run the checks, and keep pull requests focused.
 Please do not include personal transaction records or private backup files in
 issues or screenshots.
 
-- [Report bugs or suggest a feature](https://github.com/farhan10ansari/SpendMate/issues)
+- [Report bugs or suggest a feature](https://github.com/farhan10ansari/money-manager/issues)
 - [Telegram community](https://t.me/farhan10ansari_spend_mate_disc)
 - [Email support](mailto:spendmate.assist@gmail.com)
 

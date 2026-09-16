@@ -32,7 +32,7 @@ export default function AboutScreen() {
 
 
     const handleRepoPress = () => {
-        Linking.openURL("https://github.com/farhan10ansari/SpendMate");
+        Linking.openURL("https://github.com/farhan10ansari/money-manager");
     };
 
 

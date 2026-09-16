@@ -49,7 +49,7 @@ export default function OnboardingItem({ item, width, isActive }: Props) {
                     {typeof item.icon === 'string' ? <Icon source={item.icon} size={52} color={colors.primary} /> : item.icon}
                   </View>}
             </View>
-            <Text style={[styles.tag, { color: colors.primary }]}>{item.type === 'setting' ? 'MAKE IT YOURS' : item.id === '9' ? 'READY WHEN YOU ARE' : 'MEET SPENDMATE'}</Text>
+            <Text style={[styles.tag, { color: colors.primary }]}>{item.type === 'setting' ? 'MAKE IT YOURS' : item.id === '9' ? 'READY WHEN YOU ARE' : 'MEET MONEY MANAGER'}</Text>
             <Text accessibilityRole="header" style={[styles.title, { color: colors.onSurface }]}>{item.title}</Text>
             <Text style={[styles.description, { color: colors.onSurfaceVariant }]}>{item.description}</Text>
           </View>

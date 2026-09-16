@@ -3,7 +3,7 @@
   "configVersion": 0,
   "workspaces": {
     "": {
-      "name": "spendmate",
+      "name": "money-manager",
       "dependencies": {
         "@expo/vector-icons": "^15.0.2",
         "@fastify/deepmerge": "^3.2.1",

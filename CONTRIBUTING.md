@@ -1,11 +1,11 @@
-# Contributing to SpendMate
+# Contributing to Money Manager
 
 We welcome contributions! Here's how you can help:
 
 ## Quick Start
 
 1. Fork the repository
-2. Clone it: `git clone https://github.com/farhan10ansari/SpendMate.git`
+2. Clone it: `git clone https://github.com/farhan10ansari/money-manager.git`
 3. Create a branch: `git checkout -b feature/your-feature`
 4. Install dependencies with `bun install` (this also activates the repository's Git hooks)
 5. Make changes and test them
@@ -25,7 +25,7 @@ We welcome contributions! Here's how you can help:
 ## Have Questions?
 
 - **Email:** spendmate.assist@gmail.com
-- **GitHub Issues:** [Report bugs](https://github.com/farhan10ansari/spendmate/issues)
+- **GitHub Issues:** [Report bugs](https://github.com/farhan10ansari/money-manager/issues)
 - **Telegram:** [Join community](https://t.me/farhan10ansari_spend_mate_disc)
 
 Thank you for contributing! 🚀

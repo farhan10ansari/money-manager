@@ -1,55 +1,47 @@
-# Privacy Policy
+# Privacy Policy for Money Manager: Expense Tracker
 
-**Last Updated:** November 4, 2025
+**Last Updated:** September 17, 2026
 
-When you use SpendMate, we want you to know about the information we collect and how we use it. Please read this Privacy Policy carefully.
+Money Manager: Expense Tracker (formerly SpendMate) is developed by Mohd Farhan Ansari. This policy explains how the app handles information and which device features it uses.
 
----
+## Local financial data
 
-## Information We Collect
+The expenses, income, categories, sources, notes, payment methods, preferences, and other records you enter are stored locally on your device. Money Manager does not require an account, connect to your bank, or provide cloud synchronization.
 
-### Personal Data
+We do not collect or transmit your financial records, personal information, device identifiers, analytics, crash reports, or usage activity to our servers or to third parties. We do not sell or share your data.
 
-**We do NOT collect, store, or use any of your personal data** such as your name, email address, phone number, or identification information. If you contact us by email, we use it only to respond to your inquiry.
+## Device features and permissions
 
-### User Entered Data
+Money Manager may use these device features when you enable the related functionality:
 
-All data you enter into SpendMate (transactions, expenses, income, categories, notes, and amounts) stays **only on your device**. We never access, transmit, or use this data. You have complete ownership and control over all your financial information.
+- **Biometric or device authentication:** The operating system verifies your identity for the optional app lock. Money Manager receives only the authentication result and cannot access your fingerprint, face data, passcode, or biometric templates.
+- **Notifications and alarms:** The app can schedule a daily reminder locally on your device. It does not use remote push notifications to transmit your financial data.
+- **Files and sharing:** Backup and restore actions occur only when you initiate them. You choose where an exported backup is saved or which app or service receives it. Exported backup files may contain your financial records, so store and share them carefully.
 
-### Device Data
+## Advertising and tracking
 
-We may collect basic non-personal device information such as device model, operating system version, and country code to help us manage and improve the application's performance and functionality.
+Money Manager does not display advertisements and does not include advertising, behavioral tracking, or third-party analytics services.
 
----
+## Contact information
 
-## Advertisements
+If you contact us by email or through a feedback form, we use the information you provide only to respond to your request. Those communications are handled by the email or form provider you choose to use and are not connected to your locally stored financial records.
 
-The app may show ads to support development. Ad networks may collect general device information and usage patterns—but never your financial data.
+## Data retention and deletion
 
----
+Your app data remains on your device until you delete individual records, reset the app, clear its storage, or uninstall it. Backup files exported outside the app remain wherever you saved or shared them and must be deleted separately.
 
-## Data Security
+## Security
 
-Your locally-stored financial data is protected with:
-- Biometric authentication (fingerprint/face recognition)
-- Local encryption on your device
+Money Manager offers an optional app lock using supported device authentication. You are responsible for protecting access to your device and any exported backup files. No storage or security method can guarantee absolute protection.
 
----
+## Changes to this policy
 
-## Policy Changes
+We may update this policy when the app or its data practices change. The revised policy will be published at this URL with a new “Last Updated” date.
 
-We reserve the right to change this Policy at any time. If we decide to change this Policy, we will post those changes on this page and update the date at the top of the page. The changes will be effective when posted. We may update this Privacy Policy at any time. Please check this page regularly for any updates.
+## Contact us
 
----
+- **Email:** spendmate.assist@gmail.com
+- **GitHub:** [github.com/farhan10ansari/money-manager](https://github.com/farhan10ansari/money-manager)
+- **Telegram:** [Money Manager community](https://t.me/farhan10ansari_spend_mate_disc)
 
-## Contact Us
-
-📧 **Email:** spendmate.assist@gmail.com
-
-🐛 **GitHub:** [github.com/farhan10ansari/spendmate](https://github.com/farhan10ansari/spendmate)
-
-💬 **Telegram:** [Community](https://t.me/farhan10ansari_spend_mate_disc)
-
----
-
-**Your data. Your device. Your control.** ❤️
+**Your data. Your device. Your control.**

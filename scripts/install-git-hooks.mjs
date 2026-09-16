@@ -26,4 +26,4 @@ if (configured.status !== 0) {
   process.exit(1);
 }
 
-console.log('SpendMate Git hooks are active.');
+console.log('Money Manager Git hooks are active.');
