@@ -131,7 +131,6 @@ Create a `.env` file at the repository root. There is no checked-in `.env.exampl
 These values supply app metadata and links, not secrets:
 
 ```dotenv
-EXPO_PUBLIC_APP_VERSION="2.0.0"
 EXPO_PUBLIC_APP_AUTHOR="farhan10ansari"
 EXPO_PUBLIC_CONTACT_EMAIL="spendmate.assist@gmail.com"
 EXPO_PUBLIC_TELEGRAM_URL="https://t.me/farhan10ansari_spend_mate_disc"
@@ -142,8 +141,9 @@ EXPO_PUBLIC_LOG_LEVEL="error"
 `EXPO_PUBLIC_FEEDBACK_FORM` optionally supplies a feedback-form URL. Public
 environment variables are embedded in the client—never put credentials in them.
 Cloud-build metadata is configured in [`eas.json`](eas.json); `.env` is excluded
-from Git and EAS uploads. Keep the displayed version aligned with `app.json`,
-`package.json`, and the EAS profile values when preparing a release.
+from Git and EAS uploads. [`package.json`](package.json) is the single source of
+truth for the user-facing app version. [`app.config.js`](app.config.js) supplies
+that value to Expo, and the About page reads the resolved Expo configuration.
 
 ### Run locally
 
@@ -203,6 +203,10 @@ bunx eas-cli@latest build --platform android --profile production
 The corresponding `bun run build:development`, `build:preview`, and
 `build:production` scripts require `eas` on your PATH. The production profile uses
 remote versioning and increments Android's version code automatically.
+
+To prepare a release, update only the `version` field in `package.json`. The
+user-facing Expo/Android/iOS version and About screen will use that value. EAS
+continues to manage the platform build number/version code separately.
 
 [`.easignore`](.easignore) excludes marketing artwork, backups, documentation,
 tests, and local outputs from build uploads while retaining runtime assets and

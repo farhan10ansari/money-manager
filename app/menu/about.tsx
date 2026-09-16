@@ -8,9 +8,10 @@ import usePersistentAppStore from "@/stores/usePersistentAppStore";
 import { useHaptics } from "@/contexts/HapticsProvider";
 import { useSnackbar } from "@/contexts/GlobalSnackbarProvider";
 import { Icon } from "react-native-paper";
+import Constants from "expo-constants";
 
 
-const APP_VERSION = process.env.EXPO_PUBLIC_APP_VERSION;
+const APP_VERSION = Constants.expoConfig?.version;
 const APP_AUTHOR = process.env.EXPO_PUBLIC_APP_AUTHOR;
 const TELEGRAM_URL = process.env.EXPO_PUBLIC_TELEGRAM_URL;
 const CONTACT_EMAIL = process.env.EXPO_PUBLIC_CONTACT_EMAIL;
