@@ -100,7 +100,7 @@ export default function AboutScreen() {
         <ScreenWrapper background="background" withScrollView contentContainerStyle={pageStyles.content}>
             <View style={[pageStyles.hero, { backgroundColor: colors.surface, borderColor: colors.border }]}>
                 <View style={[pageStyles.logo, { backgroundColor: colors.primaryContainer }]}>
-                    <Icon source={require('../../assets/images/icon.png')} size={32} />
+                    <Icon source={require('../../assets/images/splash-icon-dark.png')} size={60} />
                 </View>
                 <ThemedText style={pageStyles.appName}>Money Manager</ThemedText>
                 <ThemedText color={colors.muted} style={pageStyles.tagline}>A little clarity for your everyday money.</ThemedText>
@@ -150,7 +150,7 @@ function AboutGroup({ title, children }: { title: string; children: React.ReactN
 const pageStyles = StyleSheet.create({
     content: { padding: 16, paddingBottom: 32, gap: 18, width: '100%', maxWidth: 720, alignSelf: 'center' },
     hero: { padding: 22, borderRadius: 26, borderWidth: StyleSheet.hairlineWidth, alignItems: 'center', gap: 8 },
-    logo: { padding: 14, borderRadius: 22, marginBottom: 4 },
+    logo: { width: 60, height: 60, alignItems: 'center', justifyContent: 'center', borderRadius: 22, marginBottom: 4 },
     appName: { fontSize: 28, lineHeight: 36, fontWeight: '800' },
     tagline: { fontSize: 13, lineHeight: 20, textAlign: 'center' },
     author: { fontSize: 11, lineHeight: 17 },

@@ -29,7 +29,8 @@ Themed icons require a supporting launcher and the user's themed-icon setting;
 they follow the system wallpaper/theme, not the in-app theme collection. Icon
 assets do not expand the app's minimum Android version or device support.
 
-About and onboarding branding use `icon.png`. Functional UI symbols and the old
+About and onboarding badges use the transparent `splash-icon-dark.png` artwork
+without additional internal padding. Functional UI symbols and the old
 archived SVGs in `bak/images` are intentionally unchanged.
 
 ## Rebuild

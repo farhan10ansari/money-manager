@@ -43,7 +43,7 @@ export function OnboardingSteps() {
       <View style={styles.header}>
         <View style={styles.brand}>
           <View style={[styles.brandIcon, { backgroundColor: colors.primaryContainer }]}>
-            <Icon source={require('../../assets/images/icon.png')} size={20} />
+            <Icon source={require('../../assets/images/splash-icon-dark.png')} size={34} />
           </View>
           <Text style={styles.brandName}>Money Manager</Text>
         </View>
