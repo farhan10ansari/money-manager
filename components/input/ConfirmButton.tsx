@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
 import { useReanimatedKeyboardAnimation } from "react-native-keyboard-controller";
 import Animated, { useAnimatedStyle } from "react-native-reanimated";
-import { Button, FAB, Portal } from "react-native-paper";
+import { Button, Portal } from "react-native-paper";
 import { useAppTheme } from "@/themes/providers/AppThemeProviders";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -39,28 +39,19 @@ export default function ConfirmButton({ onPress, type, kind = 'expense' }: Confi
         <Portal>
             {show && (
                 <Animated.View style={[styles.anchor, { bottom: bottomInset + 16 }, keyboardStyle]}>
-                    {type === 'create' ? (
-                        <Button
-                            mode="contained"
-                            compact
-                            icon="check"
-                            onPress={onPress}
-                            buttonColor={kind === 'income' ? colors.tertiaryContainer : colors.primaryContainer}
-                            textColor={kind === 'income' ? colors.onTertiaryContainer : colors.onPrimaryContainer}
-                            style={styles.compactFab}
-                            contentStyle={styles.compactContent}
-                            labelStyle={styles.compactLabel}
-                        >
-                            {kind === 'income' ? 'Add income' : 'Add expense'}
-                        </Button>
-                    ) : (
-                    <FAB
+                    <Button
+                        mode="contained"
+                        compact
                         icon="check"
-                        variant={kind === 'income' ? 'tertiary' : 'primary'}
                         onPress={onPress}
-                        label={type === "edit" ? "Save changes" : kind === 'income' ? 'Add income' : 'Add expense'}
-                    />
-                    )}
+                        buttonColor={kind === 'income' ? colors.tertiaryContainer : colors.primaryContainer}
+                        textColor={kind === 'income' ? colors.onTertiaryContainer : colors.onPrimaryContainer}
+                        style={styles.compactFab}
+                        contentStyle={styles.compactContent}
+                        labelStyle={styles.compactLabel}
+                    >
+                        {type === 'edit' ? 'Save changes' : kind === 'income' ? 'Add income' : 'Add expense'}
+                    </Button>
                 </Animated.View>
             )}
         </Portal>
